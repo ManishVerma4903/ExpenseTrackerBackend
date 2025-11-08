@@ -78,11 +78,13 @@ router.get("/all-expenses", authMiddleware, async (req, res) => {
   try {
     // fetch only user's expenses
     const records = await Expense.find({ userId: req.user._id });
+    const apkVersion = process.env.APK_VERSION;
 
     const totals = calculateTotals(records);
 
     res.json({
       message: "All expenses fetched successfully",
+      apkVersion,
       ...totals,
       data: records,
     });
