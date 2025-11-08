@@ -27,6 +27,9 @@ const userSchema = new mongoose.Schema(
     description: {
       type: String,
     },
+    apkVersion:{
+      type: String
+    }
   },
   { timestamps: true }
 );
